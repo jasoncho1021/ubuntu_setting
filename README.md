@@ -24,3 +24,8 @@ sofrware & update 에서 Additional Drivers 탭을 선택하면 설치 가능한
 
 ## python 삭제해서 UI 안 되었을 때 복구했던 방법  
 https://askubuntu.com/questions/218919/i-accidentally-deleted-usr-bin-python-how-do-i-restore-it
+
+## 트랙패드 제스처  
+https://github.com/iberianpig/fusuma  
+
+
