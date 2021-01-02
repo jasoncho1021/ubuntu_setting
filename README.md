@@ -1,4 +1,4 @@
-## gpu 정보 받아오기 위해 nvidia 드라이버 설치  
+## gpu 사용량 실기간으로 받아오기 위해 nvidia 드라이버 설치  
 방법 1)  
 https://devyurim.github.io/development%20environment/ubuntu/2018/05/24/ubuntu-2.html  
 
