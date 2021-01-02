@@ -26,6 +26,16 @@ https://github.com/jergusg/k380-function-keys-conf
 키보드 디바이스 번호 확인 방법  
 dmesg | grep hidraw k380 
 ``` 
+## CapsLock + ikjl키 -> 상하좌우 방향키로 맵핑  
+/usr/share/X11/xkb/symbols/pc  수정  
+```
+key <CAPS> { [ ISO_Level3_Shift ] };
+
+key <AC06>  { type="THREE_LEVEL", [   h,   H, Left  ]   }; 
+key <AC07>  { type="THREE_LEVEL", [   j,   J, Down  ]   }; 
+key <AC08>  { type="THREE_LEVEL", [   k,   K, Up    ]   }; 
+key <AC09>  { type="THREE_LEVEL", [   l,   L, Right ]   }; 
+```
 
 ##  테스크탑 UI 변경  
 ```
