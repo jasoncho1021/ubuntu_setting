@@ -27,7 +27,7 @@ https://github.com/jergusg/k380-function-keys-conf
 dmesg | grep hidraw k380 
 ``` 
 ## CapsLock + ikjl키 -> 상하좌우 방향키로 맵핑  
-/usr/share/X11/xkb/symbols/pc  수정  
+/usr/share/X11/xkb/symbols/pc    
 ```
 key <CAPS> { [ ISO_Level3_Shift ] };
 
@@ -36,6 +36,12 @@ key <AC07>  { type="THREE_LEVEL", [   j,   J, Down  ]   };
 key <AC08>  { type="THREE_LEVEL", [   k,   K, Up    ]   }; 
 key <AC09>  { type="THREE_LEVEL", [   l,   L, Right ]   }; 
 ```
+/usr/share/X11/xkb/types/iso9995  
+```
+preserve[LevelThree+Shift] = Shift;  
+```
+https://askubuntu.com/questions/533719/custom-keyboard-layout-to-use-h-j-k-l-as-arrows-not-working-properly/1048906#1048906  
+  
 
 ##  테스크탑 UI 변경  
 ```
