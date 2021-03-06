@@ -6,6 +6,12 @@ https://devyurim.github.io/development%20environment/ubuntu/2018/05/24/ubuntu-2.
 sofrware & update 에서 Additional Drivers 탭을 선택하면 설치 가능한 nvidia 드라이버들이 나열되어있다.  
 선택하여 Apply Changes를 해줘도 된다.  
 
+## 베터리 사용량 늘리기
+1-1) BIOS: primary battery charge configuration 80% -> 100%  
+1-2) nvidia -> 내장 intel로 전환  
+https://jjeaby.medium.com/xps15-for-ubuntu-md-aab8b42073d3  
+https://medium.com/@tomwwright/better-battery-life-on-ubuntu-17-10-4588b7f72def
+
 ## python 삭제해서 UI 안 되었을 때 복구했던 방법  
 https://askubuntu.com/questions/218919/i-accidentally-deleted-usr-bin-python-how-do-i-restore-it  
 
