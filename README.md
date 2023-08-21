@@ -25,6 +25,44 @@ https://github.com/rcasero/doc/wiki/Ubuntu-linux-on-Dell-XPS-15-(9560)#touchpad
 
 ## 트랙패드 제스처 추가
 https://github.com/iberianpig/fusuma  
+~/.config/fusuma/config.yml
+```
+swipe:
+  3:
+    left:
+      command: 'xdotool key ctrl+alt+l'
+    right:
+      command: 'xdotool key ctrl+alt+j'
+    up:
+      command: 'xdotool key super+w'
+    down:
+      command: 'xdotool key super+s'
+  4:
+    left:
+      command: ''
+    right:
+      command: ''
+    up:
+      command: 'xdotool key super+shift+w'
+    down:
+      command: ''
+pinch:
+  2:
+    in:
+      command: ''
+      threshold: 0.1
+    out:
+      command: ''
+      threshold: 0.1
+ 
+threshold:
+  swipe: 1
+  pinch: 1
+ 
+interval:
+  swipe: 1
+  pinch: 1
+```
 
 ## k380 키보드 fn키 lock 걸기  
 https://github.com/jergusg/k380-function-keys-conf  
