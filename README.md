@@ -201,6 +201,10 @@ partial default xkb_types "default" {
 ```
 preserve[LevelThree+Shift] = Shift;  
 ```
+
+/usr/share/X11/xkb/symbols/inet 에 xkb_symbols "evdev"
+key <I147> { [ XF86MenuKB ] }; 를 Escape로 바꿈
+
 https://askubuntu.com/questions/533719/custom-keyboard-layout-to-use-h-j-k-l-as-arrows-not-working-properly/1048906#1048906  
   
 
