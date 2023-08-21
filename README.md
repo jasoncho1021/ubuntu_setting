@@ -35,6 +35,101 @@ dmesg | grep hidraw k380
 ## CapsLock + ikjl키 -> 상하좌우 방향키로 맵핑  
 /usr/share/X11/xkb/symbols/pc    
 ```
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "pc105" {
+
+    key <ESC>  {	[ Escape		]	};
+    // The extra key on many European keyboards:
+    key <LSGT> {	[ less, greater, bar, brokenbar ] };
+
+    // The following keys are common to all layouts.
+    key <BKSL> {	[ backslash,	bar	]	};
+    key <SPCE> {	[ 	 space		]	};
+
+    include "srvr_ctrl(fkey2vt)"
+    include "pc(editing)"
+    include "keypad(x11)"
+
+    key <BKSP> {	[ BackSpace, BackSpace	]	};
+
+    key  <TAB> {	[ Tab,	ISO_Left_Tab	]	};
+    key <RTRN> {	[ Return		]	};
+
+    key <CAPS> {	[ ISO_Level3_Shift	]	};
+    key <NMLK> {	[ Num_Lock 		]	};
+
+    key <LFSH> {	[ Shift_L		]	};
+    key <LCTL> {	[ Control_L		]	};
+    key <LWIN> {	[ Super_L		]	};
+
+    key <RTSH> {	[ Shift_R		]	};
+    key <RCTL> {	[ Control_R		]	};
+    key <RWIN> {	[ Multi_key	]	};
+    key <MENU> {	[ Menu			]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { Shift_L, Shift_R };
+    modifier_map Lock   { Caps_Lock };
+    modifier_map Control{ Control_L, Control_R };
+    modifier_map Mod2   { Num_Lock };
+    modifier_map Mod4   { Super_L, Super_R };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    key <LVL3> {	[ ISO_Level3_Shift	]	};
+    key <MDSW> {	[ Mode_switch 		]	};
+    modifier_map Mod5   { <LVL3>, <MDSW> };
+
+    key <ALT>  {	[ NoSymbol, Alt_L	]	};
+    include "altwin(meta_alt)"
+
+    key <META> {	[ NoSymbol, Meta_L	]	};
+    modifier_map Mod1   { <META> };
+
+    key <SUPR> {	[ NoSymbol, Super_L	]	};
+    modifier_map Mod4   { <SUPR> };
+
+    key <HYPR> {	[ NoSymbol, Hyper_L	]	};
+    modifier_map Mod4   { <HYPR> };
+    // End of modifier mappings.
+
+    key <OUTP> { [ XF86Display ] };
+    key <KITG> { [ XF86KbdLightOnOff ] };
+    key <KIDN> { [ XF86KbdBrightnessDown ] };
+    key <KIUP> { [ XF86KbdBrightnessUp ] };
+
+    key <AD08> { type="THREE_LEVEL", [ i, I, Up  ] };
+    key <AC07> { type="THREE_LEVEL", [ j, J, Left ] };
+    key <AC08> { type="THREE_LEVEL", [ k, K, Down ] };
+    key <AC09> { type="THREE_LEVEL", [ l, L, Right ] };
+    key <AC06> { type="THREE_LEVEL", [ h, H, Home ] };
+    key <AB06> { type="THREE_LEVEL", [ n, N, End ] };
+};
+
+hidden partial alphanumeric_keys
+xkb_symbols "editing" {
+    key <PRSC> {
+	type= "PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  Scroll_Lock		]	};
+    key <PAUS> {
+	type= "PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+    key  <INS> {	[  Insert		]	};
+    key <HOME> {	[  Home			]	};
+    key <PGUP> {	[  Prior		]	};
+    key <DELE> {	[  Delete		]	};
+    key  <END> {	[  End			]	};
+    key <PGDN> {	[  Next			]	};
+
+    key   <UP> {	[  Up			]	};
+    key <LEFT> {	[  Left			]	};
+    key <DOWN> {	[  Down			]	};
+    key <RGHT> {	[  Right		]	};
+};
+```
+```
 key <CAPS> { [ ISO_Level3_Shift ] };
 
 key <AC06>  { type="THREE_LEVEL", [   h,   H, Left  ]   }; 
@@ -42,7 +137,29 @@ key <AC07>  { type="THREE_LEVEL", [   j,   J, Down  ]   };
 key <AC08>  { type="THREE_LEVEL", [   k,   K, Up    ]   }; 
 key <AC09>  { type="THREE_LEVEL", [   l,   L, Right ]   }; 
 ```
+
 /usr/share/X11/xkb/types/iso9995  
+```
+partial default xkb_types "default" {
+
+    // A key type which can be used to implement
+    // an ISO9995-style level-three shift.
+
+    virtual_modifiers LevelThree;
+
+    type "THREE_LEVEL" {
+	modifiers = Shift+LevelThree;
+	map[None] = Level1;
+	map[Shift] = Level2;
+	map[LevelThree] = Level3;
+	map[Shift+LevelThree] = Level3;
+	preserve[Shift+LevelThree] = Shift;
+	level_name[Level1] = "Base";
+	level_name[Level2] = "Shift";
+	level_name[Level3] = "Level3";
+    };
+};
+```
 ```
 preserve[LevelThree+Shift] = Shift;  
 ```
